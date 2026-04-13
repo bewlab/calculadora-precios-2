@@ -535,9 +535,10 @@ function compute() {
   });
 
   document.getElementById('s-saving').textContent = fmt(saving);
+  const freqLabel = freq === 1 ? 'cada año' : 'cada ' + freq + ' años';
   document.getElementById('s-detail').textContent = mode === 'compound'
     ? 'vs renovar con subida acumulada del +' + Math.round(hike*100) + '%/año'
-    : 'vs renovar con subida puntual del +' + Math.round(hike*100) + '% en el año 2';
+    : 'vs renovar con subida puntual del +' + Math.round(hike*100) + '% ' + freqLabel;
   document.getElementById('s-pu-f').textContent = fmtPU(freePU[nYears]);
   document.getElementById('s-pu-l').textContent = fmtPU(lockPU[nYears]);
 
