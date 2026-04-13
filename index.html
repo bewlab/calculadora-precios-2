@@ -508,7 +508,7 @@ function compute() {
       'Sin contrato (sube +' + Math.round(hike*100) + '% cada renovación desde año 2)';
   } else {
     for (let i = 1; i <= nYears; i++) {
-      const hikeYear = (i % freq === 0);
+      const hikeYear = i > 1 && ((i - 1) % freq === 0);
       freePU.push(hikeYear ? freePU[i-1] * (1 + hike) : freePU[i-1]);
       lockPU.push(hikeYear ? lockPU[i-1] * (1 + CAP)  : lockPU[i-1]);
     }
